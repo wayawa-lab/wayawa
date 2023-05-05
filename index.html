@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charSet="utf-8"/>
+  <link rel="stylesheet" href="css/style.css" data-precedence="next.js"/>
+  <link rel="stylesheet" href="css/style_min.css" data-precedence="next.js"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="./media/favicon.ico">
+  <script src="js/web3.min.js"></script>
+  <script src="js/bignumber.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+<body>
+<div data-rk="">
+  <style>[data-rk] {
+      --rk-blurs-modalOverlay: blur(0px);
+      --rk-fonts-body: SFRounded, ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      --rk-radii-actionButton: 9999px;
+      --rk-radii-connectButton: 12px;
+      --rk-radii-menuButton: 12px;
+      --rk-radii-modal: 24px;
+      --rk-radii-modalMobile: 28px;
+      --rk-colors-accentColor: #3898FF;
+      --rk-colors-accentColorForeground: #FFF;
+      --rk-colors-actionButtonBorder: rgba(255, 255, 255, 0.04);
+      --rk-colors-actionButtonBorderMobile: rgba(255, 255, 255, 0.08);
+      --rk-colors-actionButtonSecondaryBackground: rgba(255, 255, 255, 0.08);
+      --rk-colors-closeButton: rgba(224, 232, 255, 0.6);
+      --rk-colors-closeButtonBackground: rgba(255, 255, 255, 0.08);
+      --rk-colors-connectButtonBackground: #1A1B1F;
+      --rk-colors-connectButtonBackgroundError: #FF494A;
+      --rk-colors-connectButtonInnerBackground: linear-gradient(0deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.15));
+      --rk-colors-connectButtonText: #FFF;
+      --rk-colors-connectButtonTextError: #FFF;
+      --rk-colors-connectionIndicator: #30E000;
+      --rk-colors-downloadBottomCardBackground: linear-gradient(126deg, rgba(0, 0, 0, 0) 9.49%, rgba(120, 120, 120, 0.2) 71.04%), #1A1B1F;
+      --rk-colors-downloadTopCardBackground: linear-gradient(126deg, rgba(120, 120, 120, 0.2) 9.49%, rgba(0, 0, 0, 0) 71.04%), #1A1B1F;
+      --rk-colors-error: #FF494A;
+      --rk-colors-generalBorder: rgba(255, 255, 255, 0.08);
+      --rk-colors-generalBorderDim: rgba(255, 255, 255, 0.04);
+      --rk-colors-menuItemBackground: rgba(224, 232, 255, 0.1);
+      --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.5);
+      --rk-colors-modalBackground: #1A1B1F;
+      --rk-colors-modalBorder: rgba(255, 255, 255, 0.08);
+      --rk-colors-modalText: #FFF;
+      --rk-colors-modalTextDim: rgba(224, 232, 255, 0.3);
+      --rk-colors-modalTextSecondary: rgba(255, 255, 255, 0.6);
+      --rk-colors-profileAction: rgba(224, 232, 255, 0.1);
+      --rk-colors-profileActionHover: rgba(224, 232, 255, 0.2);
+      --rk-colors-profileForeground: rgba(224, 232, 255, 0.05);
+      --rk-colors-selectedOptionBorder: rgba(224, 232, 255, 0.1);
+      --rk-colors-standby: #FFD641;
+      --rk-shadows-connectButton: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      --rk-shadows-dialog: 0px 8px 32px rgba(0, 0, 0, 0.32);
+      --rk-shadows-profileDetailsAction: 0px 2px 6px rgba(37, 41, 46, 0.04);
+      --rk-shadows-selectedOption: 0px 2px 6px rgba(0, 0, 0, 0.24);
+      --rk-shadows-selectedWallet: 0px 2px 6px rgba(0, 0, 0, 0.24);
+      --rk-shadows-walletLogo: 0px 2px 16px rgba(0, 0, 0, 0.16);
+  }</style>
+  <main class="jsx-2b9c3c9ecca96421 __variable_235296 font-sans px-8">
+    <nav class="w-full flex fixed top-0 left-0 px-8 py-4 justify-between items-center space-x-6">
+      <a class="flex items-center space-x-4" href="./index.html">
+        <img alt="Clips Logo" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" style="color:transparent" src="./media/logo.png"/>
+      </a>
+      <div class="items-center space-x-8 hidden md:flex">
+        <a href="./how-to-play.html">
+          <p class="text-white">HOW TO PLAY</p>
+        </a>
+        <p class="text-white"><span id="balance">0</span> $WYW</p>
+        <div class="iekbcc0 ju367va ju367v1n" aria-hidden="true">
+          <button class="iekbcc0 iekbcc9 ju367v73 ju367v7o ju367v9c ju367vn ju367vec ju367vex ju367v11 ju367v1c ju367v2b ju367v8o _12cbo8i3 ju367v8m _12cbo8i4 _12cbo8i6" type="button"
+                  onclick="connectWallet()" id="showAddress">Connect Wallet
+          </button>
+        </div>
+      </div>
+      <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" class="fill-white hover:fill-gray-300 md:hidden" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="currentColor"></path>
+        <path d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"
+              fill="currentColor"></path>
+        <path d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"
+              fill="currentColor"></path>
+      </svg>
+    </nav>
+
+    <div class="min-h-screen flex justify-center items-center pt-16 md:pt-0">
+      <div class="h-min flex flex-col">
+        <p class="text-lg md:text-2xl text-white font-black text-center" >PRIZEPOOL: <span id="pool">0</span> $WYW</p>
+        <p class="text-white font-black text-center text-lg md:text-2xl">CLIP OWNER 👇: <span id="owner">...</span></p>
+        <h2 class="text-transparent bg-gradient-to-r from-[#00ffa0] via-[#69b6ff] to-[#cd14ff] bg-clip-text font-black text-6xl md:text-6xl lg:text-9xl text-center my-12 uppercase break-words max-w-[90vw] md:max-w-[90vw]" id="clip"></h2>
+        <div class="text-white text-center text-6xl font-black mb-4 "><p class="text-center mb-2 ">OWNER CAN CLAIM PRIZEPOOL IN:</p><span id="time">00:00:00</span></div>
+        <button id="mintBtn" class="btn-gradient mt-4 self-center w-full md:w-auto" disabled="" onclick="mint()">FREE Mint <span id="free"></span> $WYW</button>
+
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 16px">
+          <input class="input" id="clip" type="text" maxlength="26" placeholder="set clip"/>
+          <button id="setClip" class="btn-gradient self-center w-full md:w-auto" onclick="setClip()">SetClip</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
