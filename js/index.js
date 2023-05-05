@@ -29,9 +29,10 @@ async function connectWallet() {
        let str_b = address.substr(address.length - 5);
        document.getElementById("showAddress").innerHTML = str_a + "..." + str_b;
 
+       let pow18 = new BigNumber(10).exponentiatedBy(new BigNumber(18));
        let aContract = new web3.eth.Contract(abi,contract);
        let balance = await aContract.methods.balanceOf(address).call();
-       document.getElementById("balance").innerHTML = balance;
+       document.getElementById("balance").innerHTML = mathDiv(balance, pow18);
     }else{
         alert('Please, Connect your wallet!');
     }
@@ -45,7 +46,9 @@ async function mint(){
     let web = new Web3(window.ethereum);
     let c = new web.eth.Contract(abi,contract);
     await c.methods.mintWyw().send({from:address});
-    this.getRefreshData();
+   setTimeout(() => {
+       this.getRefreshData();
+    }, 5000);
 }
 
 async function getRefreshData(){
@@ -53,14 +56,13 @@ async function getRefreshData(){
    let web = new Web3(chain_rpc);
    let aContract = new web.eth.Contract(abi,contract);
    let prizePool = await aContract.methods.prizePool().call();
-   let supply = mathDiv(prizePool, pow18);
-   document.getElementById("pool").innerHTML = supply;
+   let pool = mathDiv(prizePool, pow18);
+   document.getElementById("pool").innerHTML = pool;
 
    let clipOwner = await aContract.methods.wywOwner().call();
    let str_a =clipOwner.substr(0, 4);
    let str_b = clipOwner.substr(clipOwner.length - 4);
    document.getElementById("owner").innerHTML = str_a + "..." + str_b;
-
 
    let clip = await aContract.methods.clip().call();
    document.getElementById("clip").innerHTML = clip;
@@ -69,7 +71,7 @@ async function getRefreshData(){
    if(address) {
       let lastMintTime = await aContract.methods.lastMintTime(address).call();
       if(lastMintTime > 0) {
-         let time = Date.now() - lastMintTime - (24*60*60);
+         let time = Date.now()/1000 - lastMintTime - (24*60*60);
          if(time > 0) {
             let lastMintValue = await aContract.methods.lastMintValue(address).call();
             freeMintAmount = lastMintValue / 2
@@ -88,7 +90,7 @@ async function getRefreshData(){
    }
 
    let lastClipUpdata = await aContract.methods.lastClipUpdate().call();
-   countdownTime = parseInt(lastClipUpdata) + (7*24*60*60) - Date.now();
+   countdownTime = parseInt(lastClipUpdata) + (7*24*60*60) - Date.now()/1000;
    setInterval(() => {
       countdownShow();
    }, 1000);
